@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUI", "WebUI\WebUI.csproj", "{D229E99C-4CB7-40A9-AB67-A63490AC13B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicEvent", "Services\MusicEvent\MusicEvent.csproj", "{7A0A505B-3126-4FF3-B8A7-E8A7FAA983AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +17,15 @@ Global
 		{D229E99C-4CB7-40A9-AB67-A63490AC13B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D229E99C-4CB7-40A9-AB67-A63490AC13B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D229E99C-4CB7-40A9-AB67-A63490AC13B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A0A505B-3126-4FF3-B8A7-E8A7FAA983AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A0A505B-3126-4FF3-B8A7-E8A7FAA983AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A0A505B-3126-4FF3-B8A7-E8A7FAA983AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A0A505B-3126-4FF3-B8A7-E8A7FAA983AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {337D339F-796B-460F-8203-3A0466F2FF3E}
 	EndGlobalSection
 EndGlobal
