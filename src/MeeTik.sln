@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUI", "WebUI\WebUI.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicEvent", "Services\MusicEvent\MusicEvent.csproj", "{7A0A505B-3126-4FF3-B8A7-E8A7FAA983AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticket", "Services\Ticket\Ticket.csproj", "{793DAA4D-F711-4468-AA42-4AE7455AA88C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7A0A505B-3126-4FF3-B8A7-E8A7FAA983AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A0A505B-3126-4FF3-B8A7-E8A7FAA983AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A0A505B-3126-4FF3-B8A7-E8A7FAA983AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{793DAA4D-F711-4468-AA42-4AE7455AA88C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{793DAA4D-F711-4468-AA42-4AE7455AA88C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{793DAA4D-F711-4468-AA42-4AE7455AA88C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{793DAA4D-F711-4468-AA42-4AE7455AA88C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
