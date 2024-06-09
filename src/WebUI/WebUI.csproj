@@ -6,4 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Services\MusicEvent\MusicEvent.csproj" />
+    <ProjectReference Include="..\Services\Ticket\Ticket.csproj" />
+    <ProjectReference Include="..\Services\User\User.csproj" />
+  </ItemGroup>
+
 </Project>

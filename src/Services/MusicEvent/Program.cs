@@ -1,12 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using MusicEvent.Data;
+using MusicEvent.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<MusicEventDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("MeeTikDB")));
+
+builder.Services.AddScoped<IMusicEventRepository, MusicEventRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

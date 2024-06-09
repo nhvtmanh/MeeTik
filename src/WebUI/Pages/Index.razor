@@ -1,131 +1,57 @@
 ﻿@page "/"
+@inject HttpClient httpClient
 
 <div class="main">
     <div class="main-content">
         <div class="trending-events-box">
             <div class="trending-events-text">Trending events</div>
         </div>
-        <ul class="events-list">
-            <li class="event-item">
-                <a href="@("/eventdetail")">
-                    <div class="event-image-box">
-                        <img src="https://salt.tkbcdn.com/ts/ds/57/04/b1/821b5e71ce786b82aca489bfbce354e5.png"
-                             alt="Event image"
-                             class="event-image" />
-                    </div>
-                    <div class="event-info-box">
-                        <span class="event-title">
-                            [LULULOLA SHOW] PHAN MẠNH QUỲNH - KM HELLEN
-                            | NGÀY CHƯA GIÔNG BÃO
-                        </span>
-                        <span class="event-price">450.000đ</span>
-                        <span class="event-date-box">
-                            <i class="ti-calendar"></i>
-                            <span class="event-date">14 Jun, 2024</span>
-                        </span>
-                    </div>
-                </a>
-            </li>
-            <li class="event-item">
-                <a href="#">
-                    <div class="event-image-box">
-                        <img src="https://salt.tkbcdn.com/ts/ds/57/04/b1/821b5e71ce786b82aca489bfbce354e5.png"
-                             alt="event-image"
-                             class="event-image" />
-                    </div>
-                    <div class="event-info-box">
-                        <span class="event-title">
-                            [LULULOLA SHOW] PHAN MẠNH QUỲNH - KM HELLEN
-                            | NGÀY CHƯA GIÔNG BÃO
-                        </span>
-                        <span class="event-price">450.000đ</span>
-                        <span class="event-date-box">
-                            <i class="ti-calendar"></i>
-                            <span class="event-date">14 Jun, 2024</span>
-                        </span>
-                    </div>
-                </a>
-            </li>
-            <li class="event-item">
-                <a href="#">
-                    <div class="event-image-box">
-                        <img src="https://salt.tkbcdn.com/ts/ds/57/04/b1/821b5e71ce786b82aca489bfbce354e5.png"
-                             alt="event-image"
-                             class="event-image" />
-                    </div>
-                    <div class="event-info-box">
-                        <span class="event-title">
-                            [LULULOLA SHOW] PHAN MẠNH QUỲNH - KM HELLEN
-                            | NGÀY CHƯA GIÔNG BÃO
-                        </span>
-                        <span class="event-price">450.000đ</span>
-                        <span class="event-date-box">
-                            <i class="ti-calendar"></i>
-                            <span class="event-date">14 Jun, 2024</span>
-                        </span>
-                    </div>
-                </a>
-            </li>
-            <li class="event-item">
-                <a href="#">
-                    <div class="event-image-box">
-                        <img src="https://salt.tkbcdn.com/ts/ds/57/04/b1/821b5e71ce786b82aca489bfbce354e5.png"
-                             alt="event-image"
-                             class="event-image" />
-                    </div>
-                    <div class="event-info-box">
-                        <span class="event-title">
-                            [LULULOLA SHOW] PHAN MẠNH QUỲNH - KM HELLEN
-                            | NGÀY CHƯA GIÔNG BÃO
-                        </span>
-                        <span class="event-price">450.000đ</span>
-                        <span class="event-date-box">
-                            <i class="ti-calendar"></i>
-                            <span class="event-date">14 Jun, 2024</span>
-                        </span>
-                    </div>
-                </a>
-            </li>
-            <li class="event-item">
-                <a href="#">
-                    <div class="event-image-box">
-                        <img src="https://salt.tkbcdn.com/ts/ds/57/04/b1/821b5e71ce786b82aca489bfbce354e5.png"
-                             alt="event-image"
-                             class="event-image" />
-                    </div>
-                    <div class="event-info-box">
-                        <span class="event-title">
-                            [LULULOLA SHOW] PHAN MẠNH QUỲNH - KM HELLEN
-                            | NGÀY CHƯA GIÔNG BÃO
-                        </span>
-                        <span class="event-price">450.000đ</span>
-                        <span class="event-date-box">
-                            <i class="ti-calendar"></i>
-                            <span class="event-date">14 Jun, 2024</span>
-                        </span>
-                    </div>
-                </a>
-            </li>
-            <li class="event-item">
-                <a href="#">
-                    <div class="event-image-box">
-                        <img src="https://salt.tkbcdn.com/ts/ds/57/04/b1/821b5e71ce786b82aca489bfbce354e5.png"
-                             alt="event-image"
-                             class="event-image" />
-                    </div>
-                    <div class="event-info-box">
-                        <span class="event-title">
-                            [LULULOLA SHOW] PHAN MẠNH QUỲNH - KM HELLEN
-                            | NGÀY CHƯA GIÔNG BÃO
-                        </span>
-                        <span class="event-price">450.000đ</span>
-                        <span class="event-date-box">
-                            <i class="ti-calendar"></i>
-                            <span class="event-date">14 Jun, 2024</span>
-                        </span>
-                    </div>
-                </a>
-            </li>
-        </ul>
+        @if (events != null)
+        {
+            <ul class="events-list">
+                @foreach (var item in events)
+                {
+                    <li class="event-item">
+                        <a href="@("/eventdetail")">
+                            <div class="event-image-box">
+                                <img src="@item.ImageUrl"
+                                     alt="Event image"
+                                     class="event-image" />
+                            </div>
+                            <div class="event-info-box">
+                                <span class="event-title">
+                                    @item.Name
+                                </span>
+                                @{
+                                    decimal value = item.Price;
+                                    string formattedValue = $"{value:0,0}đ";
+
+                                    DateTime date = item.Date;
+                                    string formattedDate = date.ToString("dd/MM/yyyy");
+                                }
+                                <span class="event-price">
+                                    @formattedValue
+                                </span>
+                                <span class="event-date-box">
+                                    <i class="ti-calendar"></i>
+                                    <span class="event-date">
+                                        @formattedDate
+                                    </span>
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+        }
     </div>
 </div>
+
+@code {
+    private List<MusicEvent.Models.MusicEvent> events;
+
+    protected override async Task OnInitializedAsync()
+    {
+        events = await httpClient.GetFromJsonAsync<List<MusicEvent.Models.MusicEvent>>("https://localhost:7109/api/MusicEvent");
+    }
+}

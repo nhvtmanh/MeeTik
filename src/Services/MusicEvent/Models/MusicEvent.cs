@@ -28,5 +28,8 @@ namespace MusicEvent.Models
 
         public int TotalTickets { get; set; }
         public int AvailableTickets { get; set; }
+
+        [Required]
+        public string ImageUrl { get; set; }
     }
 }
