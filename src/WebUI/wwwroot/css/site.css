@@ -23,6 +23,133 @@
     color: white;
 }
 
-    .blazor-error-boundary::after {
-        content: "An error has occurred."
-    }
+.blazor-error-boundary::after {
+    content: "An error has occurred."
+}
+
+/* Reset CSS */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    width: 100%;
+    height: 76px;
+    background-color: rgb(45 194 117);
+    padding: 0 80px;
+}
+
+.meetik-icon-box {
+    display: inline-block;
+    float: left;
+    vertical-align: middle;
+}
+
+.meetik-text {
+    line-height: 76px;
+    font-size: 36px;
+    color: white;
+}
+
+.button-box {
+    line-height: 76px;
+    font-size: 20px;
+    display: inline-block;
+    float: right;
+}
+
+.button-box .btn {
+    color: #ffffff;
+    font-weight: 500;
+
+}
+
+.button-box .btn-createevent {
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 36px;
+    padding: 10px 50px;
+    transition: all 0.4s ease-in-out 0s;
+    font-weight: 500;
+    margin-right: 50px;
+}
+
+.button-box .btn-createevent:hover {
+    color: rgb(42, 45, 52);
+    background-color: rgb(255, 255, 255);
+}
+
+.button-box .vertical-line {
+    display: inline-block;
+    height: 20px;
+    border-right: 2px solid #ffffff;
+    margin: 0 5px;
+}
+
+.main {
+    background-color: #000;
+    padding: 32px 32px;
+}
+
+.trending-events-box .trending-events-text {
+    font-size: 24px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.events-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: -30px;
+    margin-top: 20px;
+}
+
+.events-list .event-item {
+    list-style-type: none;
+    width: calc(25% - 30px);
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.event-image-box .event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.event-info-box {
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+}
+
+.event-info-box .event-title {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.event-info-box .event-price {
+    color: #2dc275;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+.event-info-box .event-date-box {
+    margin-top: 8px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.event-date-box .event-date {
+    margin-left: 5px;
+}
