@@ -155,18 +155,16 @@ a {
 }
 
 .event-detail-box {
+    
+}
+
+.event-detail-box .ticket-box {
     background-color: #050505;
     padding: 40px 40px;
 }
 
-.event-detail-box .ticket-box {
-    background-color: #38383d;
-    border-radius: 40px;
-}
-
 .ticket-box .ticket {
     display: flex;
-    
 }
 
 .ticket .left-ticket {
@@ -175,6 +173,9 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: #38383d;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
 }
 
 .left-ticket .top-span {
@@ -247,4 +248,31 @@ a {
     object-fit: cover;
     border-top-right-radius: 40px;
     border-bottom-right-radius: 40px;
+}
+
+.about-box {
+    padding: 40px 40px;
+    background-color: #f5f7fc;
+    height: 500px;
+}
+
+.about-box .about {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 0 30px;
+}
+
+.about .title {
+    font-size: 25px;
+    font-weight: 500;
+    color: #000;
+    border-bottom: 1px solid rgb(235, 235, 240);
+    padding: 20px 0;
+}
+
+.about .content {
+    font-size: 20px;
+    color: #000;
+    padding: 20px 0;
+    text-align: justify;
 }
