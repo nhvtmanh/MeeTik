@@ -1,3 +1,20 @@
 ﻿@inherits LayoutComponentBase
 
-<main> @Body </main>
+<div>
+    <header class="header">
+        <div class="meetik-icon-box">
+            <a href="#" class="meetik-text">MeeTik</a>
+        </div>
+        <div class="button-box">
+            <a class="btn-createevent" href="#">Create Event</a>
+            <a class="btn btn-login" href="#">Log in</a>
+            <div class="vertical-line"></div>
+            <a class="btn btn-signup" href="#">Sign up</a>
+        </div>
+    </header>
+
+    <!-- Page content goes here -->
+    <div class="content">
+        @Body
+    </div>
+</div>
