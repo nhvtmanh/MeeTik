@@ -16,5 +16,10 @@ namespace MusicEvent.Repositories
         {
             return await _dbContext.MusicEvents.ToListAsync();
         }
+
+        public async Task<Models.MusicEvent> GetEventByIdAsync(int eventId)
+        {
+            return await _dbContext.MusicEvents.FindAsync(eventId);
+        }
     }
 }

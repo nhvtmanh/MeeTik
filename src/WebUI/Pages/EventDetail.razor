@@ -1,29 +1,40 @@
-﻿@page "/eventdetail"
+﻿@page "/event-detail/{id}"
+@inject NavigationManager NavigationManager
+@inject HttpClient httpClient
 
 <div class="event-detail-box">
     <div class="ticket-box">
-        <div class="ticket">
-            <div class="left-ticket">
-                <div class="top-span">
-                    <span class="title">[LULULOLA SHOW] PHAN MẠNH QUỲNH - KM HELLEN | NGÀY CHƯA GIÔNG BÃO</span>
-                    <span class="datetime-box">
-                        <i class="ti-calendar"></i>
-                        <span class="datetime-text">17:30 - 19:30, 07 Jun, 2024</span>
-                    </span>
-                    <span class="location-box">
-                        <i class="ti-location-pin"></i>
-                        <span class="location-text">Lululola Coffee</span>
-                    </span>
+        @if (musicEvent != null)
+        {
+            string eventName = musicEvent.Name;
+            string eventDate = musicEvent.Date.ToString("dd/MM/yyyy");
+            string eventLocation = musicEvent.Location;
+            string formattedPrice = $"{musicEvent.Price:0,0}đ";
+            string ImageUrl = musicEvent.ImageUrl;
+
+            <div class="ticket">
+                <div class="left-ticket">
+                    <div class="top-span">
+                        <span class="title">@eventName</span>
+                        <span class="datetime-box">
+                            <i class="ti-calendar"></i>
+                            <span class="datetime-text">@eventDate</span>
+                        </span>
+                        <span class="location-box">
+                            <i class="ti-location-pin"></i>
+                            <span class="location-text">@eventLocation</span>
+                        </span>
+                    </div>
+                    <div class="bottom-span">
+                        <span class="price">@formattedPrice</span>
+                        <a class="btn-book" @onclick="BookTicket">Book now</a>
+                    </div>
                 </div>
-                <div class="bottom-span">
-                    <span class="price">450.000 đ</span>
-                    <a class="btn-book" href="#">Book now</a>
+                <div class="right-ticket">
+                    <img class="ticket-image" src="@ImageUrl" alt="Ticket image" />
                 </div>
             </div>
-            <div class="right-ticket">
-                <img class="ticket-image" src="https://salt.tkbcdn.com/ts/ds/57/04/b1/821b5e71ce786b82aca489bfbce354e5.png" alt="Ticket image" />
-            </div>
-        </div>
+        }
     </div>
     <div class="about-box">
         <div class="about">
@@ -31,15 +42,32 @@
                 <span class="title-text>">About</span>
             </div>
             <div class="content">
-                <span class="content-text">
-                    Liveshow Phan Mạnh Quỳnh - Km Hellen | Ngày Chưa Giông Bão
-                    Lululola Show - Hơn cả âm nhạc, không gian lãng mạn đậm chất thơ Đà Lạt bao trọn hình ảnh thung lũng Đà Lạt, được ngắm nhìn khoảng khắc hoàng hôn thơ mộng đến khi Đà Lạt về đêm siêu lãng mạn, được giao lưu với thần tượng một cách chân thật và gần gũi nhất trong không gian ấm áp và không khí se lạnh của Đà Lạt. Tất cả sẽ mang đến một đêm nhạc ấn tượng mà bạn không thể quên khi đến với Đà Lạt.
-                </span>
+                @if (musicEvent != null)
+                {
+                    <span class="content-text">
+                        @musicEvent.Description
+                    </span>
+                }
             </div>
         </div>
     </div>
 </div>
 
 @code {
+    [Parameter]
+    public string Id { get; set; }
 
+    private MusicEvent.Models.MusicEvent musicEvent;
+
+    protected override async Task OnInitializedAsync()
+    {
+        string requestUri = $"https://localhost:7109/api/MusicEvent/{Id}";
+        musicEvent = await httpClient.GetFromJsonAsync<MusicEvent.Models.MusicEvent>(requestUri);
+    }
+
+    private void BookTicket()
+    {
+        // Implement booking ticket here
+
+    }
 }

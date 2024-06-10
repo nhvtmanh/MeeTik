@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject HttpClient httpClient
+@inject NavigationManager NavigationManager
 
 <div class="main">
     <div class="main-content">
@@ -12,7 +13,7 @@
                 @foreach (var item in events)
                 {
                     <li class="event-item">
-                        <a href="@("/eventdetail")">
+                        <a @onclick="() => NavigateToItemDetail(item.EventId.ToString())">
                             <div class="event-image-box">
                                 <img src="@item.ImageUrl"
                                      alt="Event image"
@@ -53,5 +54,10 @@
     protected override async Task OnInitializedAsync()
     {
         events = await httpClient.GetFromJsonAsync<List<MusicEvent.Models.MusicEvent>>("https://localhost:7109/api/MusicEvent");
+    }
+
+    private void NavigateToItemDetail(string id)
+    {
+        NavigationManager.NavigateTo($"/event-detail/{id}");
     }
 }

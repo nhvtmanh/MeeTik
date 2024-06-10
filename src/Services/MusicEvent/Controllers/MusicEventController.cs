@@ -20,5 +20,11 @@ namespace MusicEvent.Controllers
         {
             return await _musicEventRepository.GetAllEventsAsync();
         }
+
+        [HttpGet("{eventId}")]
+        public async Task<Models.MusicEvent> GetEventById(int eventId)
+        {
+            return await _musicEventRepository.GetEventByIdAsync(eventId);
+        }
     }
 }
